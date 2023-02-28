@@ -30,4 +30,4 @@ jobs:
 
     - name: Build with Gradle
       working-directory: ${{env.PROJECT_DIR}}
-      run: ./printerApplication build
+      run: ./printerApplication.iml build
