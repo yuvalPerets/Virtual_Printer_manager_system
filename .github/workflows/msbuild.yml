@@ -26,10 +26,8 @@ jobs:
         java-version: '12'
         distribution: 'adopt'
         
-    - name: Make gradlew executable
-      working-directory: ${{env.PROJECT_DIR}}
-      run: chmod +x gradlew
+
 
     - name: Build with Gradle
       working-directory: ${{env.PROJECT_DIR}}
-      run: ./gradlew build
+      run: ./printerApplication build
