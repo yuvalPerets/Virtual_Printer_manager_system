@@ -1,5 +1,5 @@
 name: Build project
-run:msbuild printerApplication\printerApplication.iml
+
 
 on:
   push:
