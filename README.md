@@ -4,7 +4,7 @@ Yuval &amp; Almog Printer Manager System , Final Project for Software Enginerrin
 ## Project title : PrinterApplication
 ### this project is covering the rest API service 
 ## Prject title : virtualPrinterV_1
-###this project is coverint the client that can work with the service 
+### this project is coverint the client that can work with the service 
 
 ## build Status
  no problem so far 
@@ -21,6 +21,7 @@ if initSomeData is not removed from the code you will have some printer inside t
 there are 5 printers in total and 2 jobs inside printer number 1 and number 5 
 after running the virtual printer you should get this inside the console :
 ![image](https://user-images.githubusercontent.com/120096334/221822298-58496530-9f39-42fd-8190-aa017036192e.png)
+
 option 1 is to enter printer id and that printer will print a job (if the printer got a job to print)
 option 2 is to send a random request to print , the server will try to look for a printer with a job and print (the printer id is randomised from the printer list and will try 10 times before giving up ) 
 option 3 is to stop the virtual printer from running .
