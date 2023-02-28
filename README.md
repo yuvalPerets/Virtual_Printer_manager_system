@@ -11,6 +11,17 @@ Yuval &amp; Almog Printer Manager System , Final Project for Software Enginerrin
 ## Code style
 java language , 
 also names in Camel Casing 
+
+## Installation
+the proper way the install the project is :
+
+1 : click on the green button with the name "code" 
+2 : copy the git URL address
+3 : open intellij
+4 : click  -> open -> get from version control  ( should open up inside Repository URL ) 
+5 : paste the URL to where is says 'URL' , there u can choose where to save the files of the project 
+
+
 ## Screenshots
 after inital build , if done correctly should be able to run the apllications like so :![image](https://user-images.githubusercontent.com/120096334/221821299-1767ddaf-4703-46c4-9208-56e68d0a94ba.png)
 we suggest first to open the server and then the client but both options are vaild.
@@ -29,8 +40,5 @@ example of using the virtual printer with the server : ![image](https://user-ima
 Rest API ,
 rabbitMQ,
 
-## Installation
-the proper way the install the project is : 
-1 : 
 
 
