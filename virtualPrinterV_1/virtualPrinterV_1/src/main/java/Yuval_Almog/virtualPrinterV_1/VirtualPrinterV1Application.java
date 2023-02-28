@@ -29,7 +29,7 @@ public class VirtualPrinterV1Application {
 		while (true) {
 			System.out.println("Select an option:");
 			System.out.println("1. select printer to print");
-			System.out.println("2.random printer print" );
+			System.out.println("2. random printer print" );
 			System.out.println("3. Quit");
 			int option = scanner.nextInt();
 			if (option == 1) {
