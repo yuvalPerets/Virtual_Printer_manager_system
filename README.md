@@ -23,10 +23,12 @@ the proper way the install the project is : <br>
 6 : then click on build -> build  <br>
 7 : from there you should enter the printerApplication in : printerApplication -> src -> main -> java ->PrinterApplication <br>
 8 : now you shold be able to run the server : ![image](https://user-images.githubusercontent.com/120096334/221839310-547533b2-5d49-4d10-a02a-44c06585d274.png) <br>
-9 : then click, File -> open -> virtualPrinterV_1 , open it inside a new window 
-10 : if a window saying load script is popping up , load it <br>
-11: build the project , then you should be able to run it <br>
-12: when done proprly u should get this screen : <br>
+9 : go to rabbitMQ , at http://localhost:15672/  (if you dont have it need to download the username and passwords should be "guest") <br>
+10 : go to Exchanges , in the name write "testing" and click -> add exchange
+11 : then click, File -> open -> virtualPrinterV_1 , open it inside a new window 
+12 : if a window saying load script is popping up , load it <br>
+13: build the project , then you should be able to run it <br>
+14: when done proprly u should get this screen : <br>
 ![image](https://user-images.githubusercontent.com/120096334/221848468-3b3a7286-3f08-4e6a-896b-65a0731f0a81.png)
 
 
@@ -56,6 +58,8 @@ rabbitMQ, <br>
 we are using local host portal 8080 for the server <br>
 
 ## How To Use
+before you can start sending msg to the server it's imoratnt do define the queue <br>
+
 we explained how to use the client in previous part , so we will foucs on how to use the server,<br>
 the server currently got 12 valid enpoints that can be used as follow : <br>
 ![image](https://user-images.githubusercontent.com/120096334/221850102-8d8399cb-b528-4c5f-8616-61fbfbcdff8b.png)<br>
