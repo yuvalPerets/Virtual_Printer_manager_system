@@ -15,11 +15,11 @@ also names in Camel Casing
 ## Installation
 the proper way the install the project is :
 
-1 : click on the green button with the name "code" 
-2 : copy the git URL address
-3 : open intellij
-4 : click  -> open -> get from version control  ( should open up inside Repository URL ) 
-5 : paste the URL to where is says 'URL' , there u can choose where to save the files of the project 
+1 : click on the green button with the name "code" <br>
+2 : copy the git URL address <br>
+3 : open intellij <br>
+4 : click  -> open -> get from version control  ( should open up inside Repository URL ) <br>
+5 : paste the URL to where is says 'URL' , there u can choose where to save the files of the project  <br>
 
 
 ## Screenshots
