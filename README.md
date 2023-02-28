@@ -24,7 +24,8 @@ the proper way the install the project is : <br>
 7 : from there you should enter the printerApplication in : printerApplication -> src -> main -> java ->PrinterApplication <br>
 8 : now you shold be able to run the server : ![image](https://user-images.githubusercontent.com/120096334/221839310-547533b2-5d49-4d10-a02a-44c06585d274.png) <br>
 9 : go to rabbitMQ , at http://localhost:15672/  (if you dont have it need to download the username and passwords should be "guest") <br>
-10 : go to Exchanges , in the name write "testing" and click -> add exchange
+10 : go to Exchanges , in the name write "testing" and click -> add exchange . should look like this ![image](https://user-images.githubusercontent.com/120096334/221852343-89e4a66a-419a-479b-b06e-6715df77e345.png)
+
 11 : then click, File -> open -> virtualPrinterV_1 , open it inside a new window 
 12 : if a window saying load script is popping up , load it <br>
 13: build the project , then you should be able to run it <br>
