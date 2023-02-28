@@ -10,8 +10,6 @@ Yuval &amp; Almog Printer Manager System , Final Project for Software Enginerrin
  no problem so far 
 ## Code style
 java language , 
-Rest API ,
-rabbitMQ,
 also names in Camel Casing 
 ## Screenshots
 after inital build , if done correctly should be able to run the apllications like so :![image](https://user-images.githubusercontent.com/120096334/221821299-1767ddaf-4703-46c4-9208-56e68d0a94ba.png)
@@ -26,4 +24,13 @@ option 1 is to enter printer id and that printer will print a job (if the printe
 option 2 is to send a random request to print , the server will try to look for a printer with a job and print (the printer id is randomised from the printer list and will try 10 times before giving up ) 
 option 3 is to stop the virtual printer from running .
 example of using the virtual printer with the server : ![image](https://user-images.githubusercontent.com/120096334/221823290-e46d1363-3482-42ad-a1da-963984f08888.png)
+
+## Tech/Framework used
+Rest API ,
+rabbitMQ,
+
+## Installation
+the proper way the install the project is : 
+1 : 
+
 
