@@ -1,11 +1,18 @@
-name: Build
+name: Build REST API
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Build with Gradle
-        run: ./printerApplication/printerApplication.iml build
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./printerApplication/printerApplication.iml build
+      - name: Build project
+        run: npm run build
+        working-directory: ./printerApplication/printerApplication.iml build
+
