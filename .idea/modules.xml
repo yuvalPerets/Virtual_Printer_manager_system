@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Almog_Yuval_Printer_manager_system.iml" filepath="$PROJECT_DIR$/.idea/Almog_Yuval_Printer_manager_system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/printerApplication/printerApplication.iml" filepath="$PROJECT_DIR$/printerApplication/printerApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/virtualPrinterV_1/virtualPrinterV_1/virtualPrinterV_1.iml" filepath="$PROJECT_DIR$/virtualPrinterV_1/virtualPrinterV_1/virtualPrinterV_1.iml" />
+    </modules>
+  </component>
+</project>
