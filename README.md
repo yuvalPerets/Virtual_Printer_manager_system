@@ -27,7 +27,8 @@ the proper way the install the project is : <br>
 10 : if a window saying load script is popping up , load it <br>
 11: build the project , then you should be able to run it <br>
 12: when done proprly u should get this screen : <br>
-![image](https://user-images.githubusercontent.com/120096334/221844605-49ba7c2d-45bc-40c7-8025-608c7f3d318a.png)
+![image](https://user-images.githubusercontent.com/120096334/221848468-3b3a7286-3f08-4e6a-896b-65a0731f0a81.png)
+
 
 
 
@@ -43,7 +44,9 @@ after running the virtual printer you should get this inside the console :
 option 1 is to enter printer id and that printer will print a job (if the printer got a job to print)
 option 2 is to send a random request to print , the server will try to look for a printer with a job and print (the printer id is randomised from the printer list and will try 10 times before giving up ) 
 option 3 is to stop the virtual printer from running .
-example of using the virtual printer with the server : ![image](https://user-images.githubusercontent.com/120096334/221823290-e46d1363-3482-42ad-a1da-963984f08888.png)
+example of using the virtual printer with the server : <br>
+![image](https://user-images.githubusercontent.com/120096334/221848610-22498270-281c-4c2f-8736-a0c44ea9fa5a.png)
+
 
 ## Tech/Framework used
 Rest API ,
