@@ -56,10 +56,10 @@ rabbitMQ, <br>
 we are using local host portal 8080 for the server <br>
 
 ## How To Use
-we explainer how to use the client in previous part , so we will foucs on how to use the server,<br>
+we explained how to use the client in previous part , so we will foucs on how to use the server,<br>
 the server currently got 12 valid enpoints that can be used as follow : <br>
-![image](https://user-images.githubusercontent.com/120096334/221850102-8d8399cb-b528-4c5f-8616-61fbfbcdff8b.png)
-![image](https://user-images.githubusercontent.com/120096334/221850158-20143663-afdb-4796-ae78-1c7608d7b145.png)
+![image](https://user-images.githubusercontent.com/120096334/221850102-8d8399cb-b528-4c5f-8616-61fbfbcdff8b.png)<br>
+![image](https://user-images.githubusercontent.com/120096334/221850158-20143663-afdb-4796-ae78-1c7608d7b145.png)<br>
  we recommand using postman to send those endpoints <br>
 
 
