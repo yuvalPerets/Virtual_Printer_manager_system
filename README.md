@@ -16,10 +16,15 @@ also names in Camel Casing
 the proper way the install the project is :
 
 1 : click on the green button with the name "code" <br>
-2 : copy the git URL address <br>
-3 : open intellij <br>
-4 : click  -> open -> get from version control  ( should open up inside Repository URL ) <br>
-5 : paste the URL to where is says 'URL' , there u can choose where to save the files of the project  <br>
+2 : download all files into your own computer address <br>
+3 : extart the files into a folder 
+4 : open intellij <br>
+5 : click  -> open -> go to where you extracted ur filed and click on the folder name printerApplication <br>
+6 : then click on build -> build moudle <br>
+7 : from there you should enter the printerApplication in : printerApplication -> src -> main -> java ->PrinterApplication <br>
+8 : now you shold be able to run the server : ![image](https://user-images.githubusercontent.com/120096334/221839310-547533b2-5d49-4d10-a02a-44c06585d274.png) <br>
+9 : then click, File -> open -> virtualPrinterV_1 
+6 : paste the URL to where is says 'URL' , there u can choose where to save the files of the project  <br>
 
 
 ## Screenshots
