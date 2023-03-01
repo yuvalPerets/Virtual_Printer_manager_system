@@ -149,4 +149,21 @@ public class PrinterTests {
         assertNull(newPrinter.searchJobById(job3.getId()));
 
     }
+
+    @Test
+    public void CheckPrinterServer()
+    {
+        String Server = "server";
+        Printer newPrinter = new Printer( Server , true, null, Long.valueOf(100));
+        assertEquals(Server ,newPrinter.getServer());
+    }
+
+    @Test
+    public void CheckSetPrinterServer()
+    {
+        String Server = "server";
+        Printer newPrinter = new Printer( Long.valueOf(100));
+        newPrinter.setServer(Server);
+        assertEquals(Server ,newPrinter.getServer());
+    }
 }

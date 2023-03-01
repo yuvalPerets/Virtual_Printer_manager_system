@@ -35,8 +35,10 @@ public class PrintersSystem {
     public void PrintByJobId(Long jobId) {
         for (Printer printer : this.printerList) {
             if (printer.searchJobById(jobId) != null) {
-                System.out.println(printer.searchJobById(jobId).getData());
-                printer.searchJobById(jobId).setStatus("done");
+                Job job = printer.searchJobById(jobId);
+                printer.getJobList().remove(job);
+                printer.getJobList().add(0,job);
+                printer.printJob();
             }
         }
     }
