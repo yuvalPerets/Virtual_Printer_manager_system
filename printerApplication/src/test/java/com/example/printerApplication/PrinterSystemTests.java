@@ -29,7 +29,7 @@ public class PrinterSystemTests {
 
         Job job1 = new Job("first");
         Job job2 = new Job("second job");
-        ArrayList<Job> jobs = new ArrayList<Job>();
+        ArrayList<Job> jobs = new ArrayList<>();
         jobs.add(job1);
         jobs.add(job2);
 
@@ -65,7 +65,7 @@ public class PrinterSystemTests {
         PrintersSystem system = new PrintersSystem();
         Job job1 = new Job("first job");
         Job job2 = new Job("second job");
-        ArrayList<Job> jobs = new ArrayList<Job>();
+        ArrayList<Job> jobs = new ArrayList<>();
         jobs.add(job1);
         jobs.add(job2);
         system.getServerJobList().add(job1);
@@ -189,29 +189,24 @@ public class PrinterSystemTests {
 
     }
 
-   // @Test
-/*    public void CheckPrinterJobListEmpty()
+    @Test
+   public void CheckPrinterJobListEmpty()
     {
         PrintersSystem system = new PrintersSystem();
-
         Printer printer1 = new Printer(Long.valueOf(100));
 
         Job job1 = new Job("first job");
         Job job2 = new Job("second job");
-
-        ArrayList<Job> jobs = new ArrayList<>();
-        jobs.add(job1);
-        jobs.add(job2);
 
         system.getPrinterList().add(printer1);
 
         system.getAllJobList().add(job1);
         system.getAllJobList().add(job2);
 
-
         ArrayList<Job> jobsFromSystem =system.getPrinterJobList(Long.valueOf(100));
-        assertNull(jobsFromSystem);
-    }*/
+
+        assertEquals(0,jobsFromSystem.size());
+    }
 
 //    @Test
 //    public void CheckPrinterJobList()
@@ -234,10 +229,145 @@ public class PrinterSystemTests {
 //        system.getAllJobList().add(job2);
 //        system.getAllJobList().add(job3);
 //
+//        system.PrintByJobId(job3.getId());
 //        ArrayList<Job> jobsFromSystem = system.getPrinterJobList(Long.valueOf(100));
 //        assertEquals(jobs,  jobsFromSystem);
 //    }
 
 
+        @Test
+        public void CheckIfPrinterDelete()
+        {
+            PrintersSystem system = new PrintersSystem();
+
+            Printer printer1 = new Printer(Long.valueOf(100));
+            system.getPrinterList().add(printer1);
+            system.deletePrinter(printer1.getId());
+
+            assertFalse( printer1.getLiveness());
+
+        }
+
+        @Test
+        public void SetAliveDeletePrinter()
+        {
+            PrintersSystem system = new PrintersSystem();
+
+            Printer printer1 = new Printer(Long.valueOf(100));
+            system.getPrinterList().add(printer1);
+            system.deletePrinter(printer1.getId());
+
+            system.setAlivePrinter(printer1.getId());
+            assertTrue( printer1.getLiveness());
+
+        }
+
+        //Tests for CreateNewJob function
+
+        @Test
+        public void CheckAssertNewJobToPrinter(){
+            PrintersSystem system = new PrintersSystem();
+            Printer printer1 = new Printer(Long.valueOf(100));
+            int size = printer1.getJobList().size();
+            system.getPrinterList().add(printer1);
+            Job job1 =new Job("new job");
+
+            system.createNewJob(printer1.getId(), job1);
+            assertEquals(size+1, printer1.getJobList().size());
+        }
+
+        @Test
+        public void CheckAssertNewJobToSystem(){
+            PrintersSystem system = new PrintersSystem();
+            Printer printer1 = new Printer(Long.valueOf(100));
+            int size = system.getAllJobList().size();
+            system.getPrinterList().add(printer1);
+            Job job1 =new Job("new job");
+
+            system.createNewJob(printer1.getId(), job1);
+            assertEquals(size+1, system.getAllJobList().size());
+        }
+
+        @Test
+        public void CheckJobIdReturn(){
+            PrintersSystem system = new PrintersSystem();
+            Printer printer1 = new Printer(Long.valueOf(100));
+
+            system.getPrinterList().add(printer1);
+            Job job1 =new Job("new job");
+
+            Long id = system.createNewJob(printer1.getId(), job1);
+            assertEquals(id, job1.getId());
+        }
+
+
+        //Tests for getAllJobWithStatus function
+        @Test
+        public void CheckJobsWithStatusPadding()
+        {
+            PrintersSystem system = new PrintersSystem();
+            Printer printer1 = new Printer(Long.valueOf(100));
+            ArrayList<Job> jobs = new ArrayList<>();
+            Job job1 =new Job("new job");
+
+            printer1.getJobList().add(job1);
+            system.getPrinterList().add(printer1);
+            jobs.add(job1);
+
+            ArrayList<Job>  check = system.getAllJobWithStatus(printer1.getId(),"padding");
+            assertEquals(check,jobs);
+        }
+
+/*        //////////לבדוקקקקקקקקקקק@Test
+        public void CheckJobsWithStatusDone()
+        {
+            PrintersSystem system = new PrintersSystem();
+            Printer printer1 = new Printer(Long.valueOf(100));
+            ArrayList<Job> jobs = new ArrayList<>();
+            Job job1 =new Job("new job");
+
+            printer1.getJobList().add(job1);
+            system.getPrinterList().add(printer1);
+            printer1.printJob();
+            jobs.add(job1);
+
+            ArrayList<Job>  check = system.getAllJobWithStatus(printer1.getId(),"done");
+            assertEquals(check,jobs);
+        }*/
+
+        //Test for updateJob function
+        @Test
+        public void CheckUpdateJob()
+        {
+            PrintersSystem system = new PrintersSystem();
+            Job job1 =new Job("new job");
+
+            system.getAllJobList().add(job1);
+            String status = "check";
+            system.updateJob(job1.getId(), status);
+            assertEquals(status,job1.getStatus());
+        }
+
+        //Test for getJobDetails function
+        @Test
+        public void getJobDetailsCheck()
+        {
+            PrintersSystem system = new PrintersSystem();
+            Job job1 =new Job("new job");
+            system.getAllJobList().add(job1);
+
+            Job job = system.getJobDetails(job1.getId());
+            assertEquals(job, job1);
+        }
+
+     @Test
+     public void getJobDetailsCheck1()
+    {
+        PrintersSystem system = new PrintersSystem();
+        Job job1 =new Job("new job");
+
+        Job job = system.getJobDetails(job1.getId());
+        assertNull(job);
+    }
     }
 
