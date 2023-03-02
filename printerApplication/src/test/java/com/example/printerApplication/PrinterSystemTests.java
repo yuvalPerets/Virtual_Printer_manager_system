@@ -209,7 +209,7 @@ public class PrinterSystemTests {
         assertEquals(0,jobsFromSystem.size());
     }
 
-/*    @Test
+    @Test
     public void CheckPrinterJobList()
     {
         PrintersSystem system = new PrintersSystem();
@@ -228,12 +228,13 @@ public class PrinterSystemTests {
 
         system.getAllJobList().add(job1);
         system.getAllJobList().add(job2);
-        system.getAllJobList().add(job3);
+      //  system.getAllJobList().add(job3);
+
 
         system.PrintByJobId(job3.getId());
         ArrayList<Job> jobsFromSystem = system.getPrinterJobList(Long.valueOf(100));
         assertEquals(jobs,  jobsFromSystem);
-    }*/
+    }
 
 
         @Test
@@ -319,23 +320,25 @@ public class PrinterSystemTests {
             assertEquals(check,jobs);
         }
 
-//      //////////לבדוקקקקקקקקקקק@Test
-//        @Test
-//        public void CheckJobsWithStatusDone()
-//        {
-//            PrintersSystem system = new PrintersSystem();
-//            Printer printer1 = new Printer(Long.valueOf(100));
-//            ArrayList<Job> jobs = new ArrayList<>();
-//            Job job1 =new Job("new job");
-//
-//            printer1.getJobList().add(job1);
-//            system.getPrinterList().add(printer1);
-//            printer1.printJob();
-//            jobs.add(job1);
-//
-//            ArrayList<Job>  check = system.getAllJobWithStatus(printer1.getId(),"done");
-//            assertEquals(check,jobs);
-//        }
+
+        @Test
+        public void CheckJobsWithStatusDone()
+        {
+            PrintersSystem system = new PrintersSystem();
+            Printer printer1 = new Printer(Long.valueOf(100));
+            ArrayList<Job> jobs = new ArrayList<>();
+            Job job1 =new Job("new job");
+
+            system.getServerJobList().add(job1);
+
+            printer1.getJobList().add(job1);
+            system.getPrinterList().add(printer1);
+            printer1.printJob();
+            jobs.add(job1);
+
+            ArrayList<Job>  check = system.getAllJobWithStatus(printer1.getId(),"done");
+            assertEquals(check,jobs);
+        }
 
         //Test for updateJob function
         @Test

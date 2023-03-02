@@ -54,12 +54,7 @@ public class PrintersSystem {
     public ArrayList<Job> getPrinterJobList(Long printerId) {
         Printer printer = getPrinterById(printerId);
         if (printer != null) {
-            ArrayList<Job> allJobList = new ArrayList<Job>();
-            for (Job workingJob : printer.getJobList()) {
-                if (workingJob.getPrintedByPrinterId().equals(printer.getId()))
-                    allJobList.add((workingJob));
-            }
-            return allJobList;
+            return printer.getJobList();
         }
         return null;
     }
@@ -81,12 +76,21 @@ public class PrintersSystem {
 
     public ArrayList<Job> getAllJobWithStatus(Long printerId, String status) {
         ArrayList<Job> temp = new ArrayList<Job>();
-        for (Job workingJob : getPrinterById(printerId).getJobList()) {
-            if (status.equals("all")) // אם לא תישלח סטטוס בפוקדת ה-GET נשלח מן הCONTROLLER את הסטטוס ALL
-                temp.add(workingJob);
-            else if (workingJob.getStatus().equals(status))
-                temp.add(workingJob);
+        if (getPrinterById(printerId) != null) {
+            Printer printer = getPrinterById(printerId) ;
+            for (Job workingJob : printer.getJobList()) {
+                if (status.equals("all")) // אם לא תישלח סטטוס בפוקדת ה-GET נשלח מן הCONTROLLER את הסטטוס ALL
+                    temp.add(workingJob);
+                else if (workingJob.getStatus().equals(status))
+                    temp.add(workingJob);
 
+            }
+            for (Job printed : this.getServerJobList()) {
+                if (status.equals("all") && printed.getPrintedByPrinterId() == printer.getId())
+                    temp.add(printed);
+                else if (printed.getStatus().equals(status) && printed.getPrintedByPrinterId() == printer.getId())
+                    temp.add(printed);
+            }
         }
         return temp;
     }

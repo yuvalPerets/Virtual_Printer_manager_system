@@ -193,8 +193,7 @@ public class PrinterSystemController implements Consumer {
 
     @GetMapping("/printjobs")
     ArrayList<Job> jobFilters (@RequestParam(value = "status" ,defaultValue = "all") String status , @RequestParam(value = "since", required = false, defaultValue = "2000-01-01") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
-            System.out.println(date);
-            System.out.println(status);
+
             return this.server.getAllJob(status, date);
     }
 
