@@ -4,8 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Hashtable;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PrinterSystemTests {
 
@@ -547,6 +549,66 @@ public class PrinterSystemTests {
         system.deletePrinter(printer1.getId());
         Statistics newStatistic = new Statistics(Long.valueOf(0),Long.valueOf(1),null,null);
         assertEquals(newStatistic.getPrinterDisConnectedAmount(),system.getSystemStats().getPrinterDisConnectedAmount());
+    }
+    @Test
+    public void TestStatus_amount_dir () {
+        Hashtable<String, Long> Status_amount_dir = new Hashtable<String, Long>();
+        PrintersSystem system = new PrintersSystem();
+        Printer printer = new Printer(Long.valueOf(1));
+        system.getPrinterList().add(printer);
+        Job job1 = new Job("first job");
+        Job job2 = new Job("second job");
+        printer.getJobList().add(job1);
+        printer.getJobList().add(job2);
+        system.getAllJobList().add(job1);
+        system.getAllJobList().add(job2);
+
+        printer.printJob();
+        Status_amount_dir.put(job1.getStatus() , Long.valueOf(1));
+        Status_amount_dir.put(job2.getStatus() , Long.valueOf(1));
+        assertEquals(Status_amount_dir , system.getSystemStats().getStatus_amount_dir());
+    }
+    @Test
+    public void TestStatus_average_time_dir () {
+        Hashtable<String, Long> Status_average_time_dir = new Hashtable<String, Long>();
+        PrintersSystem system = new PrintersSystem();
+        Printer printer = new Printer(Long.valueOf(1));
+        system.getPrinterList().add(printer);
+        Job job1 = new Job("first job");
+        Job job2 = new Job("second job");
+        printer.getJobList().add(job1);
+        printer.getJobList().add(job2);
+        system.getAllJobList().add(job1);
+        system.getAllJobList().add(job2);
+
+        printer.printJob();
+        Date date;
+        for (Job workingJob : system.getAllJobList()) {
+            if (Status_average_time_dir.containsKey(workingJob.getStatus())) {
+                if (workingJob.getPrintDate()==null)
+                    date = new Date();
+                else
+                    date = workingJob.getPrintDate();
+                long workTime = Math.abs(date.getTime() - workingJob.getCreateDate().getTime());
+                System.out.println(workTime);
+                long totalWorkTime = Status_average_time_dir.get(workingJob.getStatus()) * Status_average_time_dir.get(workingJob.getStatus());
+                Status_average_time_dir.put(workingJob.getStatus(), Status_average_time_dir.get(workingJob.getStatus()) + 1);
+                Status_average_time_dir.put(workingJob.getStatus(), (totalWorkTime + workTime) / Status_average_time_dir.get(workingJob.getStatus()));
+            } else {
+                if (workingJob.getPrintDate()==null)
+                    date = new Date();
+                else
+                    date = workingJob.getPrintDate();
+                Status_average_time_dir.put(workingJob.getStatus(), Long.valueOf(1));
+                long workTime = Math.abs(date.getTime() - workingJob.getCreateDate().getTime());
+
+                Status_average_time_dir.put(workingJob.getStatus(), workTime);
+            }
+
+        }
+        Status_average_time_dir.put(job1.getStatus() , Long.valueOf(1));
+        Status_average_time_dir.put(job2.getStatus() , Long.valueOf(1));
+        assertEquals(Status_average_time_dir , system.getSystemStats().getStatus_amount_dir());
     }
 
 

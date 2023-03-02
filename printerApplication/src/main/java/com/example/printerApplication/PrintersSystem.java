@@ -155,7 +155,7 @@ public class PrintersSystem {
                     date = workingJob.getPrintDate();
                 Status_amount_dir.put(workingJob.getStatus(), Long.valueOf(1));
                 long workTime = Math.abs(date.getTime() - workingJob.getCreateDate().getTime());
-                System.out.println(workTime);
+
                 Status_average_time_dir.put(workingJob.getStatus(), workTime);
             }
 
