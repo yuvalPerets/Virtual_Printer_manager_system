@@ -3,6 +3,7 @@ package com.example.printerApplication;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -318,22 +319,23 @@ public class PrinterSystemTests {
             assertEquals(check,jobs);
         }
 
-/*        //////////לבדוקקקקקקקקקקק@Test
-        public void CheckJobsWithStatusDone()
-        {
-            PrintersSystem system = new PrintersSystem();
-            Printer printer1 = new Printer(Long.valueOf(100));
-            ArrayList<Job> jobs = new ArrayList<>();
-            Job job1 =new Job("new job");
-
-            printer1.getJobList().add(job1);
-            system.getPrinterList().add(printer1);
-            printer1.printJob();
-            jobs.add(job1);
-
-            ArrayList<Job>  check = system.getAllJobWithStatus(printer1.getId(),"done");
-            assertEquals(check,jobs);
-        }*/
+//      //////////לבדוקקקקקקקקקקק@Test
+//        @Test
+//        public void CheckJobsWithStatusDone()
+//        {
+//            PrintersSystem system = new PrintersSystem();
+//            Printer printer1 = new Printer(Long.valueOf(100));
+//            ArrayList<Job> jobs = new ArrayList<>();
+//            Job job1 =new Job("new job");
+//
+//            printer1.getJobList().add(job1);
+//            system.getPrinterList().add(printer1);
+//            printer1.printJob();
+//            jobs.add(job1);
+//
+//            ArrayList<Job>  check = system.getAllJobWithStatus(printer1.getId(),"done");
+//            assertEquals(check,jobs);
+//        }
 
         //Test for updateJob function
         @Test
@@ -360,14 +362,190 @@ public class PrinterSystemTests {
             assertEquals(job, job1);
         }
 
-     @Test
-     public void getJobDetailsCheck1()
-    {
-        PrintersSystem system = new PrintersSystem();
-        Job job1 =new Job("new job");
+         @Test
+         public void getJobDetailsCheck1()
+        {
+            PrintersSystem system = new PrintersSystem();
+            Job job1 =new Job("new job");
 
-        Job job = system.getJobDetails(job1.getId());
-        assertNull(job);
+            Job job = system.getJobDetails(job1.getId());
+            assertNull(job);
+        }
+
+    //Test for getAllJob function
+
+        @Test
+        public void CheckGetJobsNoStatusNoDate()
+        {
+            Date startDate = new Date();
+            //pause the program for 1 sec
+            try{
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();}
+
+            PrintersSystem system = new PrintersSystem();
+            Printer printer1 = new Printer(Long.valueOf(100));
+            ArrayList<Job> jobs = new ArrayList<>();
+
+            Job job1 = new Job("first job");
+            Job job2 = new Job("second job");
+            Job job3 = new Job("third job");
+
+            jobs.add(job1);
+            jobs.add(job2);
+            jobs.add(job3);
+
+
+           //system.getPrinterList().add(printer1);
+
+            system.getAllJobList().add(job1);
+            system.getAllJobList().add(job2);
+            system.getAllJobList().add(job3);
+
+            printer1.getJobList().add(job3);
+            printer1.printJob();
+
+            ArrayList<Job> check = system.getAllJob("all",startDate);
+
+            assertEquals(check, jobs);
+
+        }
+
+        @Test
+        public void CheckGetJobsByStatusPadding()
+        {
+            Date startDate = new Date();
+            //pause the program for 1 sec
+            try{
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();}
+
+            PrintersSystem system = new PrintersSystem();
+            Printer printer1 = new Printer(Long.valueOf(100));
+            ArrayList<Job> jobs = new ArrayList<>();
+
+            Job job1 = new Job("first job");
+            Job job2 = new Job("second job");
+            Job job3 = new Job("third job");
+
+            jobs.add(job1);
+            jobs.add(job2);
+
+            system.getAllJobList().add(job1);
+            system.getAllJobList().add(job2);
+            system.getAllJobList().add(job3);
+
+            printer1.getJobList().add(job3);
+            printer1.printJob();
+
+            ArrayList<Job> check = system.getAllJob("padding",startDate);
+
+            assertEquals(check, jobs);
+
+        }
+
+    @Test
+    public void CheckGetJobsByStatusDone()
+    {
+        Date startDate = new Date();
+        //pause the program for 1 sec
+        try{
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();}
+
+        PrintersSystem system = new PrintersSystem();
+        Printer printer1 = new Printer(Long.valueOf(100));
+        ArrayList<Job> jobs = new ArrayList<>();
+
+        Job job1 = new Job("first job");
+        Job job2 = new Job("second job");
+        Job job3 = new Job("third job");
+
+        jobs.add(job3);
+
+        system.getAllJobList().add(job1);
+        system.getAllJobList().add(job2);
+        system.getAllJobList().add(job3);
+
+        printer1.getJobList().add(job3);
+        printer1.printJob();
+
+        ArrayList<Job> check = system.getAllJob("done",startDate);
+
+        assertEquals(check, jobs);
+
     }
+
+        @Test
+        public void CheckGetJobsByStatusAndDate()
+        {
+
+
+            PrintersSystem system = new PrintersSystem();
+            Printer printer1 = new Printer(Long.valueOf(100));
+            ArrayList<Job> jobs = new ArrayList<>();
+
+            Date startDate = new Date();
+            Job job1 = new Job("first job");
+            //pause the program for 1 sec
+            try{
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();}
+
+
+            Job job2 = new Job("second job");
+            Job job3 = new Job("third job");
+
+            jobs.add(job2);
+
+            system.getAllJobList().add(job1);
+            system.getAllJobList().add(job2);
+            system.getAllJobList().add(job3);
+
+            printer1.getJobList().add(job3);
+            printer1.printJob();
+
+            ArrayList<Job> check = system.getAllJob("padding",startDate);
+
+            assertEquals(check, jobs);
+
+        }
+
+        //Test for Statistics
+
+        //Test number of alive printers
+        //Test number of delete printers
+
+        @Test
+        public void CheckPrintersStatusAlive(){
+
+            PrintersSystem system = new PrintersSystem();
+            Printer printer1 = new Printer(Long.valueOf(100));
+            Printer printer2 = new Printer(Long.valueOf(200));
+
+            system.getPrinterList().add(printer1);
+            Statistics newStatistic = new Statistics(Long.valueOf(1),Long.valueOf(0),null,null);
+
+            assertEquals(newStatistic.getPrinterConnectedAmount(),system.getSystemStats().getPrinterConnectedAmount());
+        }
+
+    @Test
+    public void CheckPrintersDisConnected(){
+
+        PrintersSystem system = new PrintersSystem();
+        Printer printer1 = new Printer(Long.valueOf(100));
+        Printer printer2 = new Printer(Long.valueOf(200));
+
+        system.getPrinterList().add(printer1);
+        system.deletePrinter(printer1.getId());
+        Statistics newStatistic = new Statistics(Long.valueOf(0),Long.valueOf(1),null,null);
+        assertEquals(newStatistic.getPrinterDisConnectedAmount(),system.getSystemStats().getPrinterDisConnectedAmount());
+    }
+
+
     }
 
