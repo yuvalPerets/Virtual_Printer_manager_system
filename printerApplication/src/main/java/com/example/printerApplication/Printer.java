@@ -45,7 +45,7 @@ public class Printer {
         this.liveness = liveness;
     }
     public void printJob(){
-        if (this.JobList.size()>0) {
+        if (this.JobList.size()>0  && this.liveness) {
             Job temp = this.JobList.remove(0);
             System.out.println(temp.getData());
             temp.setStatus("done");
