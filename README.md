@@ -2,22 +2,22 @@
 Yuval &amp; Almog Printer Manager System , Final Project for Software Enginerring <br>
 
 ## Project title : PrinterApplication
-### this project is covering the rest API service 
+### this project covers the rest API service 
 ## Prject title : virtualPrinterV_1
-### this project is coverint the client that can work with the service 
+### this project covers the client that can work with the service 
 
 ## build Status
  no problem so far <br>
 ## Code style
 java language , <br>
-also names in Camel Casing  <br>
+names in Camel Casing  <br>
 
 ## Installation
 the proper way the install the project is : <br>
 
 1 : click on the green button with the name "code" <br>
 2 : download all files into your own computer address <br>
-3 : extart the files into a folder <br>
+3 : extract the files into a folder <br>
 4 : open intellij <br>
 5 : click  -> open -> go to where you extracted ur filed and click on the folder name printerApplication <br>
 6 : then click on build -> build  <br>
